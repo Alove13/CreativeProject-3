@@ -1,0 +1,184 @@
+html, body { height: 100%; padding:0; margin: 0;}
+.topSection{
+    position: relative;
+    margin: 10px;
+    padding: 20px;
+    top: 20px;
+    width: 100%;
+    height: 80%;
+    float: left;
+    background-image: url("spaceDust.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.midSection{
+    position: relative;
+    width: 100%;
+    height: 120%;
+    float: left;
+    background: gold;
+    margin: 10px;
+    padding: 20px;
+    top: 30px;
+    background-image: url("pinkSpace.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.animation {
+    position: relative;
+    top: 1%;
+    left: 20%;
+    width: 60%;
+    height: 100%;
+}
+.animation h1 {
+    color: palevioletred;
+}
+#hideMe img{
+    transition: all linear 0.5s;
+    background-image: url("ironGiant.jpg");
+    height: 90%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  
+  .ng-hide {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    top:-200px;
+    left: 200px;
+  }
+  
+.slidePages{
+    position: absolute;
+    margin: 5px;
+}
+.slidePages img{
+    position: relative;
+    top: 0px;
+    right: 7px;    
+    width: 80%;
+    height: 160%;
+}
+.slidePages a{    
+    position: absolute;
+    left: 36%;
+    bottom: -200px;
+    padding: 1px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+.slidePagesAll img{
+    width: 25%;
+    height: 65%;
+    margin: 8px;
+    padding: 5px;
+}
+.slidePagesSearch{   
+    width: 25%;
+    height: 65%;
+}
+#slideshow { 
+    min-width: 500;
+    margin: 5px auto; 
+    position: relative; 
+    width: 50%; 
+    height: 95%; 
+    padding: 1px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px;
+    width: 800px; 
+    height: 300px; 
+}
+.searchDiv {
+    min-width: 500;
+    margin: 5px auto; 
+    position: relative; 
+    width: 50%; 
+    height: 95%; 
+    padding: 1px; 
+    background-color: maroon;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+.searchForm { 
+    position: absolute; 
+    top: 40%; 
+    left: 35%; 
+    right: 10px; 
+    bottom: 10px;
+    width: 800px; 
+    height: 300px; 
+}
+#submitButton {
+    position: absolute;
+    left: 7%;
+}
+.text {
+    text-transform: uppercase;
+    color: darkblue;
+    position:absolute;
+    left: 6.5%;
+}
+.posterContent {
+    min-width: 500px;
+    margin:0;
+    padding:0;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    background-color: lightblue;
+}
+.posterContent img{
+    width: 80%;
+    height: 90%;
+    left: 10%;
+    position: relative;
+}
+#topRight {
+    position: absolute;
+    top: 10;
+    right: 10;
+}
+#bottomRight {
+    position: absolute;
+    bottom: 10;
+    right: 10;
+}
+#topLeft {
+    position: absolute;
+    top: 10;
+    left: 10;
+}
+#bottomLeft {
+    position: absolute;
+    bottom: 10;
+    left: 10;
+}
+#bottomCenter {
+    position: absolute;
+    bottom: 10;
+    left: 40%;
+}
+#topCenter {
+    position: absolute;
+    top: 10;
+    right: 10;
+}
+.displayer {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    font-family: sans-serif;
+    color: red;
+    width: 50%;
+    height: 20%;
+}

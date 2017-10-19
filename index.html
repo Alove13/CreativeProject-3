@@ -3,77 +3,114 @@
         <link rel="stylesheet" type="text/css" href="indexStyles.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- May still need to npm install angular-chart.js --save -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-        <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>        
-        <script src="node_modules/chart.js/Chart.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-animate.js"></script>
+        <!-- <script src="node_modules/chart.js/Chart.min.js"></script>
+        <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>-->
+        <script src="angStuff.js"></script>
+   <script>
+    $(document).ready(function(){
+        $("#slideshow > div:gt(0)").hide();
+        setInterval(function() { 
+        $('#slideshow > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slideshow');
+        },  2500);
+    });
+    </script>
     </head>
-    <body>
-
-<!-- Home Page in Home script -->
-    <div id="backGround">
+    
+    <body ng-app="App">
+        <!-- Where magic happens -->
+        <ui-view></ui-view> 
+        
+    <script type="text/ng-template" id="/home.html">
         <div class="topSection">
             <!-- Poster Selection && search movie takes to search page -->
-            <div id="firstPoster">
-                <img src="" alt="">
+           <div id="slideshow">
+                <div class="slidePages">
+                    <img src="LukeSkywalker.jpg" alt="no poster">
+                    <a href="#/poster0"><button>Vote!</button></a>
+                </div>
+                <div class="slidePages">
+                    <img src="goonies.jpg" alt="no poster">
+                    <a href="#/poster1"><button>Vote!</button></a>
+                </div>
+                <div class="slidePages">
+                    <img src="waroftheworlds.jpg" alt="no poster">
+                    <a href="#/poster2"><button>Vote!</button></a>
+                </div>
             </div>
-            <div id="secondPoster">
-                <img src="" alt="">
-            </div>
-            <div id="thirdPoster">
-                <img src="" alt="">
-            </div>
-            <div id="allPosters">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-            </div>
-            <div id="searchMovies">
-                <form
-                ng-submit="" 
-                action="">
-                    <input type="text">
-                    <input type="Submit" value="Submit">
-                </form>
-            </div>
-        </div>
+        </div> 
+
         <div class="midSection">
-
+                
+                <div class="animation">
+                        <h1>Hide the Giant! <input type="checkbox" ng-model="myCheck"></h1>
+                        
+                        <div id="hideMe" ng-hide="myCheck">
+                            <img src="ironGiant.jpg">
+                        </div>                        
+                </div>
         </div>
-        <div class="bottomSection">
+    </script>
 
+    <script type="text/ng-template" id="/posters0.html">
+        <div class="posterContent">
+            <div>
+                <img src="LukeSkywalker.jpg" alt="no poster">
+            </div>     
+                <button id="topRight" ng-click="hotFn()">Hot</button>
+                <button id="bottomRight" ng-click="aweFn()">Awesome</button>
+                <button id="topLeft" ng-click="insFn()">Inspiring</button>
+                <button id="bottomLeft" ng-click="chillFn()">Chill</button>
+                <button id="bottomCenter" ng-click="likeFn()">Just Like It</button>
+                <a href="#/home"><button id="topCenter">Return</button><a/>
+            <div class="displayer">
+                <h1>{{displayVote}}</h1>
+            </div>
         </div>
-    </div>
-
-
-<!-- Voting Page in Vote script -->
-    <div>
-        <!-- display image of poster -->
-        <!-- Hidden text and button shown when voted -->
-        <div><h2></h2></div>
-        <button></button>
-    </div>
-    <div>
-        <!-- Animated buttons -->
-        <button>Hot</button>
-        <button>Awesome</button>
-        <button>Inspiring</button>
-        <button>Chill</button>
-        <button>Just Like It</button>
-    </div>
+    </script>
     
-<!-- Search Movies Page in Search script -->
-    <div>
-        <div>
-            <!-- display poster -->
-        </div>
-        <div>
-            <!-- display movie info -->
-        </div>
-    </div>
+    <script type="text/ng-template" id="/posters1.html">
+        <div class="posterContent">
+                <div>
+                    <img src="goonies.jpg" alt="no poster">
+                </div>     
+                    <button id="topRight" ng-click="hotFn()">Hot</button>
+                    <button id="bottomRight" ng-click="aweFn()">Awesome</button>
+                    <button id="topLeft" ng-click="insFn()">Inspiring</button>
+                    <button id="bottomLeft" ng-click="chillFn()">Chill</button>
+                    <button id="bottomCenter" ng-click="likeFn()">Just Like It</button>
+                    <a href="#/home"><button id="topCenter">Return</button><a/>
+                <div class="displayer">
+                    <h1>{{displayVote}}</h1>
+                </div>
+            </div>
+    </script>      
 
+    <script type="text/ng-template" id="/posters2.html">
+        <div class="posterContent">
+                <div>
+                    <img src="waroftheworlds.jpg" alt="no poster">
+                </div>     
+                    <button id="topRight" ng-click="hotFn()">Hot</button>
+                    <button id="bottomRight" ng-click="aweFn()">Awesome</button>
+                    <button id="topLeft" ng-click="insFn()">Inspiring</button>
+                    <button id="bottomLeft" ng-click="chillFn()">Chill</button>
+                    <button id="bottomCenter" ng-click="likeFn()">Just Like It</button>
+                    <a href="#/home"><button id="topCenter">Return</button><a/>
+                <div class="displayer">
+                    <h1>{{displayVote}}</h1>
+                </div>
+            </div>
+    </script>    
 
-    </body>
+</body>
 </html>

@@ -1,0 +1,47 @@
+//How to get access to these functions from a controller?
+<div class="searchDiv">
+                    <h2 class="text">Search about your favorite movie!</h2>
+                    <form 
+                    ng-submit="Search()"
+                    class="searchForm">
+                        <input 
+                            type="text" 
+                            ng-model="mySearch">
+                        <br>
+                        <br>
+                            <input
+                            id="submitButton" 
+                            type="submit" 
+                            value="Submit">
+                    </form>
+                </div>
+
+
+.factory('myFactory', ['$http', 
+function($http){
+    var requestReturn = {}
+    requestReturn.theSearch = ""
+    console.log("entered myFactory")
+    
+    requestReturn.inputTheSearch = function(inputSearch) {
+        theSearch = inputSearch //Get input from homeCtrl
+        console.log("updated theSearch")
+        
+    }
+
+    requestReturn.movieSearch = function() {
+        $http.get("https://api.themoviedb.org/3/search/movie?api_key=ea290f9dcf18ae999a92fd2d09bc9fda&query="+theSearch)
+        .then(function(response) {
+            return  response.data //when ctrlers call movieSearch, will get JSON object
+            console.log("returned data")
+            console.log(response.data)
+        })
+    }
+
+    requestReturn.getmySearch =function() {
+        return $scope.theSearch  
+        console.log("accessed theSearch")
+    }
+    console.log("about to return requestReturn")
+    return requestReturn
+}])
